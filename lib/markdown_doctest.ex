@@ -1,4 +1,7 @@
 defmodule MarkdownDoctest do
+  @external_resource "README.md"
+  @moduledoc File.read!("README.md") |> String.replace_prefix("# MarkdownDoctest\n\n", "")
+
   defmacro __using__(opts) do
     path = Keyword.fetch!(opts, :file)
 
